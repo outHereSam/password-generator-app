@@ -90,7 +90,7 @@ export class AppComponent {
 
     // Validate the password
     if (this.generatedPass.length < 8) {
-      this.passwordStrength = 'Too Weak';
+      this.passwordStrength = 'Too Weak!';
     } else if (this.generatedPass.length >= 8 && numberOfTrues === 1) {
       this.passwordStrength = 'Weak';
     } else if (this.generatedPass.length >= 8 && numberOfTrues === 2) {
