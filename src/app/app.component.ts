@@ -93,7 +93,11 @@ export class AppComponent {
       this.passwordStrength = 'Too Weak!';
     } else if (this.generatedPass.length >= 8 && numberOfTrues === 1) {
       this.passwordStrength = 'Weak';
-    } else if (this.generatedPass.length >= 8 && numberOfTrues === 2) {
+    } else if (
+      this.generatedPass.length >= 8 &&
+      this.generatedPass.length < 12 &&
+      numberOfTrues >= 2
+    ) {
       this.passwordStrength = 'Medium';
     } else if (this.generatedPass.length >= 12 && numberOfTrues >= 3) {
       this.passwordStrength = 'Strong';
