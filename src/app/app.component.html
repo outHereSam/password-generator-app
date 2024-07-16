@@ -8,9 +8,11 @@
     [includeLowercase]="includeLowercase"
     [includeNumbers]="includeNumbers"
     [includeSymbols]="includeSymbols"
+    (setSliderValueEvent)="setCharLength($event)"
     (setIncludedUppercaseEvent)="setIncludedUppercase($event)"
     (setIncludedLowercaseEvent)="setIncludedLowercase($event)"
     (setIncludedNumbersEvent)="setIncludedNumbers($event)"
     (setIncludedSymbolsEvent)="setIncludedSymbols($event)"
+    (generatePassEvent)="generatePassword()"
   />
 </div>

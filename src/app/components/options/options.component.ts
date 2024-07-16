@@ -19,8 +19,12 @@ export class OptionsComponent {
   @Output() setIncludedNumbersEvent = new EventEmitter<boolean>();
   @Output() setIncludedSymbolsEvent = new EventEmitter<boolean>();
 
+  @Output() generatePassEvent = new EventEmitter<any>();
+  @Output() setSliderValueEvent = new EventEmitter<number>();
+
   setSliderValue(event: any) {
     this.charLength = event.target.value;
+    this.setSliderValueEvent.emit(event.target.value);
   }
 
   setIncludeUppercase(event: any) {
@@ -41,5 +45,9 @@ export class OptionsComponent {
   setIncludeSymbols(event: any) {
     this.includeUppercase = event.target.checked;
     this.setIncludedSymbolsEvent.emit(event.target.checked);
+  }
+
+  generateBtnClicked() {
+    this.generatePassEvent.emit('Generate button clicked');
   }
 }

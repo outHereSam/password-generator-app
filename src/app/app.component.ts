@@ -26,6 +26,10 @@ export class AppComponent {
   includeNumbers = false;
   includeSymbols = false;
 
+  setCharLength(value: number) {
+    this.characterLength = value;
+  }
+
   setIncludedUppercase(value: boolean) {
     this.includeUppercase = value;
   }
@@ -40,5 +44,13 @@ export class AppComponent {
 
   setIncludedSymbols(value: boolean) {
     this.includeSymbols = value;
+  }
+
+  generatePassword() {
+    console.log('Character Length: ', this.characterLength);
+    console.log('Includes Uppercase Letters: ', this.includeUppercase);
+    console.log('Includes Lowercase Letters: ', this.includeLowercase);
+    console.log('Includes Numbers: ', this.includeNumbers);
+    console.log('Includes Symbols: ', this.includeSymbols);
   }
 }
