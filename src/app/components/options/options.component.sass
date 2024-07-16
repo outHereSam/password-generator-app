@@ -161,33 +161,33 @@
             display: flex
             align-items: center
             gap: 8px
-            
 
+            &[data-strength="Too Weak!"]
+                .meter:nth-child(1)
+                    background-color: $status-red
+                    border: none
+            
+            &[data-strength="Weak"]
+                .meter:nth-child(-n+2)
+                    background-color: $status-orange
+                    border: none
+
+            &[data-strength="Medium"]
+                .meter:nth-child(-n+3)
+                    background-color: $status-yellow
+                    border: none
+
+            &[data-strength="Strong"]
+                .meter:nth-child(-n+3)
+                     background-color: $primary-green
+                     border: none
+
+            
             .meter
                 width: 10px
                 height: 28px
                 display: inline-block
                 border: solid 2px $text-color
-
-            span.red
-                background-color: $status-red
-                border: none
-
-            span.orange
-                background-color: $status-orange
-                border: none
-
-            span.yellow
-                background-color: $status-yellow
-                border: none
-
-            span.green
-                background-color: $primary-green
-                border: none
-
-            .active
-                border: none
-                background-color: $status-yellow
 
 .generate
     font-family: $font-stack
