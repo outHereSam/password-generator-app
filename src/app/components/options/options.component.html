@@ -54,28 +54,11 @@
     <p class="label">Strength</p>
     <div class="strength-stat">
       <h5>{{ passwordStrength }}</h5>
-      <div class="strength-meter">
-        @if (passwordStrength === 'Too Weak!') {
-        <span class="meter red"></span>
+      <div class="strength-meter" [attr.data-strength]="passwordStrength">
         <span class="meter"></span>
         <span class="meter"></span>
         <span class="meter"></span>
-        } @if (passwordStrength === 'Weak') {
-        <span class="meter orange"></span>
-        <span class="meter orange"></span>
         <span class="meter"></span>
-        <span class="meter"></span>
-        } @if (passwordStrength === 'Medium') {
-        <span class="meter yellow"></span>
-        <span class="meter yellow"></span>
-        <span class="meter yellow"></span>
-        <span class="meter"></span>
-        } @if (passwordStrength === 'Strong') {
-        <span class="meter green"></span>
-        <span class="meter green"></span>
-        <span class="meter green"></span>
-        <span class="meter green"></span>
-        }
       </div>
     </div>
   </div>
