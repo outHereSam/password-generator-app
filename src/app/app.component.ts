@@ -11,7 +11,7 @@ import { OptionsComponent } from './components/options/options.component';
   styleUrl: './app.component.sass',
 })
 export class AppComponent {
-  generatedPass = 'P4$5W0rD!';
+  generatedPass = '';
   characterLength = 0;
   characterPool = '';
   passwordStrength = '';
