@@ -9,4 +9,5 @@ import { Component, Input } from '@angular/core';
 })
 export class GeneratedPasswordComponent {
   @Input() generatedPassword = '';
+  placeholder = 'P4$5W0rD!';
 }

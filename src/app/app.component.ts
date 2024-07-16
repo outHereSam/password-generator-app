@@ -11,8 +11,9 @@ import { OptionsComponent } from './components/options/options.component';
   styleUrl: './app.component.sass',
 })
 export class AppComponent {
-  generatedPass = 'PTx1f5DaFX';
+  generatedPass = 'P4$5W0rD!';
   characterLength = 0;
+  characterPool = '';
 
   // Define  character sets
   uppercaseLetters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
@@ -46,11 +47,72 @@ export class AppComponent {
     this.includeSymbols = value;
   }
 
+  // Combine the characters
+  combineCharacters() {
+    if (this.includeUppercase) {
+      this.characterPool += this.uppercaseLetters;
+    }
+    if (this.includeLowercase) {
+      this.characterPool += this.lowercaseLetters;
+    }
+    if (this.includeNumbers) {
+      this.characterPool += this.numbers;
+    }
+    if (this.includeSymbols) {
+      this.characterPool += this.symbols;
+    }
+  }
+
+  // Generate random char
+  generateRandomChar(str: string) {
+    const randomIndex = Math.floor(Math.random() * str.length);
+    return str[randomIndex];
+  }
+
+  // Determing password strength
+  determinePasswordStrength() {
+    let uppercaseCount;
+    let lowercaseCount;
+    let numberCount;
+    let symbolCount;
+
+    if (this.generatedPass.length < 8) {
+      console.log('Too weak');
+    }
+  }
+
   generatePassword() {
-    console.log('Character Length: ', this.characterLength);
-    console.log('Includes Uppercase Letters: ', this.includeUppercase);
-    console.log('Includes Lowercase Letters: ', this.includeLowercase);
-    console.log('Includes Numbers: ', this.includeNumbers);
-    console.log('Includes Symbols: ', this.includeSymbols);
+    // Combine characters
+    this.combineCharacters();
+
+    // Generate password
+    let password = [];
+    let mandatoryChars = [];
+
+    if (this.includeUppercase) {
+      mandatoryChars.push(this.generateRandomChar(this.uppercaseLetters));
+    }
+    if (this.includeLowercase) {
+      mandatoryChars.push(this.generateRandomChar(this.lowercaseLetters));
+    }
+    if (this.includeNumbers) {
+      mandatoryChars.push(this.generateRandomChar(this.numbers));
+    }
+    if (this.includeSymbols) {
+      mandatoryChars.push(this.generateRandomChar(this.symbols));
+    }
+
+    const remainingLength = this.characterLength - mandatoryChars.length;
+    if (remainingLength > 0) {
+      for (let i = 0; i < remainingLength; i++) {
+        password.push(this.generateRandomChar(this.characterPool));
+      }
+
+      password = password.concat(mandatoryChars);
+      password.sort(() => Math.random() - 0.5); // Shuffle the password
+
+      this.generatedPass = password.join('');
+    }
+    this.determinePasswordStrength();
   }
 }
