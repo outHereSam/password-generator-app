@@ -33,6 +33,7 @@
         display: flex
         align-items: center
         margin: 0 0 32px 0
+        position: relative
 
         input
             height: 8px
@@ -73,6 +74,14 @@
 
             &::-moz-range-progress
                 background: $primary-green
+
+    .progress
+        width: 50%
+        height: 8px
+        background-color: $primary-green
+        position: absolute
+        top: 0
+        left: 0
 
     .criteria
         // border: solid 1px pink
