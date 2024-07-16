@@ -33,13 +33,19 @@
         display: flex
         align-items: center
         margin: 0 0 32px 0
+        position: relative
+        height: 8px
+        background-color: $bg-dark
 
         input
             height: 8px
             width: 100%
             -webkit-appearance: none
             outline: none
-            background-color: $bg-dark
+            // background-color: $bg-dark
+            background-color: transparent
+            position: absolute
+            z-index: 2
 
             &::-webkit-slider-thumb
                 appearance: none
@@ -50,7 +56,7 @@
                 background: $text-color
                 border: none
                 cursor: pointer
-                transition: 0.2s ease-in-out
+                transition: 0.2s ease-in-out    
 
                 &:hover
                     background-color: $bg-dark
@@ -73,6 +79,15 @@
 
             &::-moz-range-progress
                 background: $primary-green
+
+        .progress
+            // width: 50%
+            height: 8px
+            background-color: $primary-green
+            position: absolute
+            top: 0
+            left: 0
+            z-index: 1
 
     .criteria
         // border: solid 1px pink

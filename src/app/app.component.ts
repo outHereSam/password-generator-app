@@ -13,6 +13,7 @@ import { OptionsComponent } from './components/options/options.component';
 export class AppComponent {
   generatedPass = '';
   characterLength = 0;
+  progressBar = '';
   characterPool = '';
   passwordStrength = '';
 
@@ -30,6 +31,9 @@ export class AppComponent {
 
   setCharLength(value: number) {
     this.characterLength = value;
+    let progressWidth = (this.characterLength * 100) / 20;
+    this.progressBar = progressWidth + '%';
+    console.log(this.progressBar);
   }
 
   setIncludedUppercase(value: boolean) {

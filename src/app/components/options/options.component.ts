@@ -9,6 +9,7 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
 })
 export class OptionsComponent {
   @Input() charLength = 0;
+  @Input() progressValue = '';
   @Input() includeUppercase: boolean = false;
   @Input() includeLowercase: boolean = false;
   @Input() includeNumbers: boolean = false;
