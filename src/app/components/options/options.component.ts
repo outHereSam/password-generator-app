@@ -13,6 +13,7 @@ export class OptionsComponent {
   @Input() includeLowercase: boolean = false;
   @Input() includeNumbers: boolean = false;
   @Input() includeSymbols: boolean = false;
+  @Input() passwordStrength: string = '';
 
   @Output() setIncludedUppercaseEvent = new EventEmitter<boolean>();
   @Output() setIncludedLowercaseEvent = new EventEmitter<boolean>();

@@ -14,6 +14,7 @@ export class AppComponent {
   generatedPass = 'P4$5W0rD!';
   characterLength = 0;
   characterPool = '';
+  passwordStrength = '';
 
   // Define  character sets
   uppercaseLetters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
@@ -49,6 +50,7 @@ export class AppComponent {
 
   // Combine the characters
   combineCharacters() {
+    this.characterPool = '';
     if (this.includeUppercase) {
       this.characterPool += this.uppercaseLetters;
     }
@@ -71,14 +73,33 @@ export class AppComponent {
 
   // Determing password strength
   determinePasswordStrength() {
-    let uppercaseCount;
-    let lowercaseCount;
-    let numberCount;
-    let symbolCount;
+    let numberOfTrues = 0;
 
-    if (this.generatedPass.length < 8) {
-      console.log('Too weak');
+    let selectionIncludes = [
+      this.includeUppercase,
+      this.includeLowercase,
+      this.includeNumbers,
+      this.includeSymbols,
+    ];
+
+    for (let i = 0; i < selectionIncludes.length; i++) {
+      if (selectionIncludes[i] === true) {
+        numberOfTrues += 1;
+      }
     }
+
+    // Validate the password
+    if (this.generatedPass.length < 8) {
+      this.passwordStrength = 'Too Weak';
+    } else if (this.generatedPass.length >= 8 && numberOfTrues === 1) {
+      this.passwordStrength = 'Weak';
+    } else if (this.generatedPass.length >= 8 && numberOfTrues === 2) {
+      this.passwordStrength = 'Medium';
+    } else if (this.generatedPass.length >= 12 && numberOfTrues >= 3) {
+      this.passwordStrength = 'Strong';
+    }
+
+    console.log(this.passwordStrength);
   }
 
   generatePassword() {
